@@ -4,6 +4,7 @@ import 'navBar.dart';
 import '../screens/home.dart';
 import '../screens/profile.dart';
 import '../screens/settings.dart';
+import '../screens/login.dart';
 
 class AppScaffold extends StatelessWidget {
   final Function(int) onTap;
@@ -15,9 +16,10 @@ class AppScaffold extends StatelessWidget {
   });
 
   static List<Widget> _widgetOptions = <Widget>[
+    Login(),
     Home(),
     Profile(),
-    SettingsScreen()
+    SettingsScreen(),
   ];
 
   @override
