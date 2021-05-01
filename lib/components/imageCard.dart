@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audio_cache.dart';
-import '../screens/soundDetails.dart';
+import '../screens/imageDetails.dart';
 
-class SoundCard extends StatelessWidget {
-  final String soundTitle;
-  final String soundFile;
-  final player = AudioCache();
-  SoundCard({this.soundTitle, this.soundFile});
+class ImageCard extends StatelessWidget {
+  final String imageTitle;
+  final String imageUrl;
+  ImageCard({this.imageTitle, this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +30,7 @@ class SoundCard extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                soundTitle,
+                imageTitle,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Container(
@@ -56,9 +54,9 @@ class SoundCard extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SoundDetails(
-                        soundFile: soundFile,
-                        soundTitle: soundTitle,
+                      MaterialPageRoute(builder: (context) => ImageDetails(
+                        imageUrl: imageUrl,
+                        imageTitle: imageTitle,
                       )),
                     );
                   },

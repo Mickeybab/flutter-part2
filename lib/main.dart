@@ -17,6 +17,24 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   static const String _title = 'Epitech';
+  bool _initialized = false;
+  bool _error = false;
+
+  // Define an async function to initialize FlutterFire
+  void initializeFlutterFire() async {
+    try {
+      // Wait for Firebase to initialize and set `_initialized` state to true
+      await Firebase.initializeApp();
+      setState(() {
+        _initialized = true;
+      });
+    } catch(e) {
+      // Set `_error` state to true if Firebase initialization fails
+      setState(() {
+        _error = true;
+      });
+    }
+  }
 
   _readMode() async {
     final prefs = await SharedPreferences.getInstance();
@@ -30,6 +48,7 @@ class MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+    initializeFlutterFire();
     super.initState();
     _readMode();
     global.currentTheme.addListener(() {
@@ -39,6 +58,15 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    // // Show error message if initialization failed
+    // if(_error) {
+    //   return SomethingWentWrong();
+    // }
+
+    // // Show a loader until FlutterFire is initialized
+    // if (!_initialized) {
+    //   return Loading();
+    // }
     return MaterialApp(
       title: _title,
       home: MyStatefulWidget(),

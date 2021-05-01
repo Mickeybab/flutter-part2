@@ -1,23 +1,21 @@
 
-import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 
-class SoundDetails extends StatefulWidget {
-  final String soundTitle;
-  final String soundFile;
-  final player = AudioCache();
+class ImageDetails extends StatefulWidget {
+  final String imageTitle;
+  final String imageUrl;
 
 
-  SoundDetails({
-    this.soundTitle,
-    this.soundFile
+  ImageDetails({
+    this.imageTitle,
+    this.imageUrl
   });
 
   @override
-  SoundDetailsState createState() => SoundDetailsState();
+  ImageDetailsState createState() => ImageDetailsState();
 }
 
-class SoundDetailsState extends State<SoundDetails> {
+class ImageDetailsState extends State<ImageDetails> {
 
   @override
   void initState() {
@@ -38,10 +36,11 @@ class SoundDetailsState extends State<SoundDetails> {
             child: Column(
               children: <Widget>[
                 Text(
-                  widget.soundTitle,
+                  widget.imageTitle,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Container(
+                  child: Image.network(widget.imageUrl),
                   width: 40,
                   height: 40,
                   margin: EdgeInsets.only(top: 10.0),
@@ -56,17 +55,6 @@ class SoundDetailsState extends State<SoundDetails> {
                         offset: Offset(2, 2), // changes position of shadow
                       ),
                     ],
-                  ),
-                  child: InkWell(
-                    splashColor: Colors.blue,
-                    onTap: () {
-                      widget.player.play(widget.soundFile);
-                    },
-                    child: Icon(
-                      Icons.play_arrow,
-                      size: 30,
-                      color: Colors.black,
-                    ),
                   ),
                 ),
               ],
