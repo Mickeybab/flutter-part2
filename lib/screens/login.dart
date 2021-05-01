@@ -26,6 +26,7 @@ class Login extends StatelessWidget {
   void _startLogin() async {
     UserCredential _user = await this.signInWithGoogle();
     print(_user);
+    print("Ok");
   }
 
   @override
