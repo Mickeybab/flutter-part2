@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'components/appScaffold.dart';
 import 'config/global.dart' as global;
 
+import 'package:firebase_core/firebase_core.dart';
+
 void main() async {
   runApp(MyApp());
 }
