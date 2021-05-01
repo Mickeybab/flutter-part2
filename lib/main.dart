@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'components/appScaffold.dart';
 import 'config/global.dart' as global;
 
-// import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   runApp(MyApp());
@@ -28,7 +28,7 @@ class MyAppState extends State<MyApp> {
       setState(() {
         _initialized = true;
       });
-    } catch(e) {
+    } catch (e) {
       // Set `_error` state to true if Firebase initialization fails
       setState(() {
         _error = true;
