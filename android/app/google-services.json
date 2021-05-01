@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:523133133132:android:672b051ad1c908ae1d6fe9",
         "android_client_info": {
-          "package_name": "com.epitech.flutter2"
+          "package_name": "com.example.flutter2"
         }
       },
       "oauth_client": [
