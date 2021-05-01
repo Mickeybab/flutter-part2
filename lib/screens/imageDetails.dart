@@ -40,22 +40,7 @@ class ImageDetailsState extends State<ImageDetails> {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  child: Image.network(widget.imageUrl),
-                  width: 40,
-                  height: 40,
-                  margin: EdgeInsets.only(top: 10.0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black,
-                        spreadRadius: 0,
-                        blurRadius: 2,
-                        offset: Offset(2, 2), // changes position of shadow
-                      ),
-                    ],
-                  ),
+                  child: Image.network(widget.imageUrl)
                 ),
               ],
           ),

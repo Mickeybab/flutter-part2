@@ -16,7 +16,7 @@ class AppScaffold extends StatelessWidget {
   });
 
   static List<Widget> _widgetOptions = <Widget>[
-    Login(),
+    // Login(),
     Home(),
     Profile(),
     SettingsScreen(),
