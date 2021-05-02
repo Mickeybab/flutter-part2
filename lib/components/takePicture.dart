@@ -29,10 +29,8 @@ class _TakePicturePageState extends State<TakePicturePage> {
     try {
       await _initializeCameraControllerFuture;
 
-      final path =
-          join((await getTemporaryDirectory()).path, '${DateTime.now()}.png');
-
-      await _cameraController.takePicture();
+      final image = await _cameraController.takePicture();
+      final path = image?.path;
 
       Navigator.pop(context, path);
     } catch (e) {
