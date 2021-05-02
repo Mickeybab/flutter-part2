@@ -24,23 +24,22 @@ dependencies:
   flutter:
     sdk: flutter
 
-  firebase_core: ^0.7.0
+  firebase_core: ^1.1.0
+  firebase_auth: ^1.1.2
+  cloud_firestore: ^1.0.7
+  firebase_storage: ^8.0.5
 
-  # Add the dependencies for any other Firebase products you want to use in your app
-  # For example, to use Firebase Authentication and Cloud Firestore
-  firebase_auth: "^0.20.1"
-  cloud_firestore: "^0.16.0+1"
-  firebase_storage: "^7.0.0"
+  google_sign_in: ^5.0.2
+  provider: ^5.0.0
+  flutter_signin_button: ^2.0.0
 
-  path_provider: "^1.0.0"
-  camera: ^0.5.7+2
-  image_picker: ^0.6.2+3
-  device_info: ^0.4.0+1
-  platform: ^2.2.1
+  path_provider: ^2.0.1
+  camera: ^0.8.1
+  image_picker: ^0.7.4
+  device_info: ^2.0.0
+  platform: ^3.0.0
   custom_switch: ^0.0.1
-  shared_preferences: ^0.5.12+4
-
-  google_sign_in: "^4.5.1"
+  shared_preferences: ^2.0.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

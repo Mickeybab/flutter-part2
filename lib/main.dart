@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter2/blocs/auth_bloc.dart';
+import 'package:flutter2/screens/login.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'components/appScaffold.dart';
 import 'config/global.dart' as global;
 
 import 'package:firebase_core/firebase_core.dart';
@@ -22,16 +24,13 @@ class MyAppState extends State<MyApp> {
   bool _initialized = false;
   bool _error = false;
 
-  // Define an async function to initialize FlutterFire
   void initializeFlutterFire() async {
     try {
-      // Wait for Firebase to initialize and set `_initialized` state to true
       await Firebase.initializeApp();
       setState(() {
         _initialized = true;
       });
     } catch (e) {
-      // Set `_error` state to true if Firebase initialization fails
       setState(() {
         _error = true;
       });
@@ -60,46 +59,15 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // // Show error message if initialization failed
-    // if(_error) {
-    //   return SomethingWentWrong();
-    // }
-
-    // // Show a loader until FlutterFire is initialized
-    // if (!_initialized) {
-    //   return Loading();
-    // }
-    return MaterialApp(
-      title: _title,
-      home: MyStatefulWidget(),
-      theme: global.lightTheme,
-      darkTheme: global.darkTheme,
-      themeMode: global.currentTheme.currentTheme(),
-    );
-  }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
-
-  @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AppScaffold(
-      onTap: _onItemTapped,
-      selectedIndex: _selectedIndex,
+    return Provider(
+      create: (context) => AuthBloc(),
+      child: MaterialApp(
+        title: _title,
+        home: Login(),
+        theme: global.lightTheme,
+        darkTheme: global.darkTheme,
+        themeMode: global.currentTheme.currentTheme(),
+      ),
     );
   }
 }
