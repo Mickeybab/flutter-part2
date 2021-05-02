@@ -25,21 +25,22 @@ class _NavWidgettState extends State<NavWidget> {
       if (fbUser == null) {
         Navigator.of(context)
             .pushReplacement(MaterialPageRoute(builder: (context) => Login()));
+        loginStateSubscription.cancel();
       }
     });
     super.initState();
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
   }
 
   @override
   void dispose() {
     loginStateSubscription.cancel();
     super.dispose();
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override

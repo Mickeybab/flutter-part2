@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter2/utils/auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -18,7 +19,7 @@ class AuthBloc {
 
       final result = await authService.signInWithCredential(credential);
 
-      print(result.user != null);
+      return result;
     } catch (error) {
       print(error);
     }
@@ -26,5 +27,6 @@ class AuthBloc {
 
   logout() {
     authService.logout();
+    googleSignIn.signOut();
   }
 }

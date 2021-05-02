@@ -1,9 +1,10 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter2/blocs/auth_bloc.dart';
-import 'package:flutter2/components/navBar.dart';
+import 'package:flutter2/components/nav.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:provider/provider.dart';
@@ -20,11 +21,11 @@ class LoginState extends State<Login> {
   void initState() {
     var authBloc = Provider.of<AuthBloc>(context, listen: false);
     loginStateSubscription = authBloc.currentUser.listen((fbUser) {
-      print("Connexion");
+      print("Listen fbUser");
       if (fbUser != null) {
         print(fbUser.displayName);
-        Navigator.of(context)
-            .pushReplacement(MaterialPageRoute(builder: (context) => NavBar()));
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => NavWidget()));
       }
     });
     super.initState();
