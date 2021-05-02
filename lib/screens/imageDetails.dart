@@ -19,7 +19,6 @@ class ImageDetailsState extends State<ImageDetails> {
 
   @override
   void initState() {
-    
     super.initState();
   }
 
@@ -40,7 +39,11 @@ class ImageDetailsState extends State<ImageDetails> {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  child: Image.network(widget.imageUrl)
+                  child: Image.network(
+                    widget.imageUrl,
+                    fit: BoxFit.fitWidth,
+                    width: double.infinity,
+                  ),
                 ),
               ],
           ),

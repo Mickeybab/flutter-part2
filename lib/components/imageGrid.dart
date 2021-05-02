@@ -17,28 +17,14 @@ class ImageFeed extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           return new ListView(
             children: snapshot.data.docs.map((DocumentSnapshot document) {
-              return new Card(
-                child: Column(
-                  children: <Widget>[
-                    Image.network(
-                      document.data()['url'],
-                      fit: BoxFit.fitWidth,
-                      width: double.infinity,
-                      height: 500,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Text(
-                        document.data()['title']
-                      ),
-                    ),
-                  ],
-                )
+              return new ImageCard(
+                imageTitle: document.data()['title'],
+                imageUrl: document.data()['url'],
               );
             }).toList(),
           );
         }
-        return Text("loading");
+        return Text("Loading...");
       }
     );
   }
