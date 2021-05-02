@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +20,7 @@ class LoginState extends State<Login> {
   void initState() {
     var authBloc = Provider.of<AuthBloc>(context, listen: false);
     loginStateSubscription = authBloc.currentUser.listen((fbUser) {
-      print("Listen fbUser");
       if (fbUser != null) {
-        print(fbUser.displayName);
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => NavWidget()));
       }
