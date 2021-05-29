@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter2/screens/albumDetails.dart';
 import '../screens/imageDetails.dart';
 
 class ImageCard extends StatelessWidget {
@@ -15,20 +16,15 @@ class ImageCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => ImageDetails(
-                      imageUrl: imageUrl,
-                      imageTitle: imageTitle,
+                builder: (context) => AlbumDetail(
+                      id: id,
+                      name: name,
                     )),
           );
         },
         child: Card(
             child: Column(
           children: <Widget>[
-            Image.network(
-              imageUrl,
-              fit: BoxFit.fitWidth,
-              width: double.infinity,
-            ),
             Padding(
               padding: const EdgeInsets.all(16),
               child: Text(
