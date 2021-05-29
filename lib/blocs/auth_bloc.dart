@@ -16,9 +16,10 @@ class AuthBloc {
           await googleUser.authentication;
       final AuthCredential credential = GoogleAuthProvider.credential(
           idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
-
       final result = await authService.signInWithCredential(credential);
+      authService.currentUser;
 
+      print(result);
       return result;
     } catch (error) {
       print(error);

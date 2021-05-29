@@ -21,8 +21,8 @@ class _NavWidgettState extends State<NavWidget> {
   @override
   void initState() {
     var authBloc = Provider.of<AuthBloc>(context, listen: false);
-    loginStateSubscription = authBloc.currentUser.listen((fbUser) {
-      if (fbUser == null) {
+    loginStateSubscription = authBloc.currentUser.listen((gUser) {
+      if (gUser == null) {
         Navigator.of(context)
             .pushReplacement(MaterialPageRoute(builder: (context) => Login()));
         loginStateSubscription.cancel();

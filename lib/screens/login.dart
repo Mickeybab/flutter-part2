@@ -19,8 +19,10 @@ class LoginState extends State<Login> {
   @override
   void initState() {
     var authBloc = Provider.of<AuthBloc>(context, listen: false);
-    loginStateSubscription = authBloc.currentUser.listen((fbUser) {
-      if (fbUser != null) {
+    loginStateSubscription = authBloc.currentUser.listen((gUser) {
+      print('listen');
+      print(gUser);
+      if (gUser != null) {
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => NavWidget()));
       }

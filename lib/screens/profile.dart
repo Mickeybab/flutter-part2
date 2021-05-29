@@ -80,7 +80,7 @@ class ProfileState extends State<Profile> {
                 child: Column(
               children: <Widget>[
                 Text(snapshot.data.displayName),
-                ProfileImage(img: img),
+                // ProfileImage(img: img),
                 MyButton(text: "Changer l'image", onPress: _showCamera),
                 MyButton(text: "Logout", onPress: () => authBloc.logout())
               ],
