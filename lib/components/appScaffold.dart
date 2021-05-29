@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'navBar.dart';
 
 import '../screens/home.dart';
+import '../screens/album.dart';
 import '../screens/profile.dart';
 import '../screens/settings.dart';
 
@@ -16,6 +17,7 @@ class AppScaffold extends StatelessWidget {
 
   static List<Widget> _widgetOptions = <Widget>[
     Home(),
+    Album(),
     Profile(),
     SettingsScreen(),
   ];
