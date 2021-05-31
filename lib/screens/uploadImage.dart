@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -113,9 +112,9 @@ class UploadImageState extends State {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Card(
-                child: (imgFile == null) ?
-                Text("Choose File") :
-                Image.file(File(imgFile.path)),
+                child: (imgFile == null)
+                  ? Text("Choose File")
+                  : Image.file(File(imgFile.path)),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -125,11 +124,9 @@ class UploadImageState extends State {
                   Text("Select Image"),
               ),
               ElevatedButton(
-                onPressed: (imgFile == null) ?
-                null :
-                () {
-                  _uploadToFirebase(context);
-                },
+                onPressed: (imgFile == null)
+                  ? null
+                  : () =>_uploadToFirebase(context),
                 child:
                   Text("Upload"),
               )
