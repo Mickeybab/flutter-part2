@@ -22,6 +22,10 @@ class NavBar extends StatelessWidget {
           label: 'Albums',
         ),
         BottomNavigationBarItem(
+          icon: Icon(Icons.add_photo_alternate),
+          label: 'Upload',
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.account_circle),
           label: 'Profile',
         ),

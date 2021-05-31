@@ -5,6 +5,7 @@ import '../screens/home.dart';
 import '../screens/album.dart';
 import '../screens/profile.dart';
 import '../screens/settings.dart';
+import '../screens/uploadImage.dart';
 
 class AppScaffold extends StatelessWidget {
   final Function(int) onTap;
@@ -18,6 +19,7 @@ class AppScaffold extends StatelessWidget {
   static List<Widget> _widgetOptions = <Widget>[
     Home(),
     Album(),
+    UploadImage(),
     Profile(),
     SettingsScreen(),
   ];
