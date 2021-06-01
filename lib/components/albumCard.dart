@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter2/screens/albumDetails.dart';
-import '../screens/imageDetails.dart';
 
 class AlbumCard extends StatelessWidget {
   final String name;

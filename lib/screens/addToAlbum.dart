@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../components/imageCard.dart';
 import '../components/addAlbumCard.dart';
 
 class AddToAlbum extends StatelessWidget {
