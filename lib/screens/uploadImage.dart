@@ -98,20 +98,17 @@ class UploadImageState extends State {
               child: (imgFile == null)
                   ? Text("Choose File")
                   : Image.file(File(imgFile.path)),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  _showChoiceDialog(context);
-                },
-                child:
-                  Text("Select Image"),
-              ),
-              UploadFirebase(
-                imgFile: imgFile,
-              )
-            ],
-          )
-        )
-    );
+            ),
+            ElevatedButton(
+              onPressed: () {
+                _showChoiceDialog(context);
+              },
+              child: Text("Select Image"),
+            ),
+            UploadFirebase(
+              imgFile: imgFile,
+            )
+          ],
+        )));
   }
 }
