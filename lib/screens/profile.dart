@@ -7,7 +7,6 @@ import 'package:flutter2/blocs/auth_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../components/profileImage.dart';
 import '../components/button.dart';
 import '../components/takePicture.dart';
 import '../config/global.dart' as global;
