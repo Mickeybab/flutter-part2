@@ -28,8 +28,8 @@ class ImageDetailsState extends State<ImageDetails> {
           color: Colors.blue,
           elevation: 0,
           child: Padding(
-            padding: EdgeInsets.only(top: 150.0),
-            child: Column(
+            padding: EdgeInsets.only(top: 50.0),
+            child: ListView(
               children: <Widget>[
                 Text(
                   widget.imageTitle,
@@ -38,8 +38,7 @@ class ImageDetailsState extends State<ImageDetails> {
                 Container(
                   child: Image.network(
                     widget.imageUrl,
-                    fit: BoxFit.fitWidth,
-                    width: double.infinity,
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
                 MyButton(
