@@ -4,7 +4,7 @@ import 'package:path/path.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
-import '../components/button.dart';
+import '../components/uploadFirebase.dart';
 
 class UploadImage extends StatefulWidget {
   @override
@@ -15,7 +15,6 @@ class UploadImage extends StatefulWidget {
 
 class UploadImageState extends State {
   PickedFile imgFile;
-  CollectionReference images = FirebaseFirestore.instance.collection('images');
   Widget build(BuildContext context) {
 
     void _openGallery(BuildContext context) async {
@@ -69,41 +68,6 @@ class UploadImageState extends State {
       });
     };
 
-    Future _showAlertDialog(BuildContext context) {
-      Widget okButton = TextButton(
-        onPressed: () => Navigator.pop(context),
-        child: Text("OK"),
-      );
-
-      AlertDialog alert = AlertDialog(
-        title: Text("Done !"),
-        actions: [
-          okButton,
-        ],
-      );
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return alert;
-        },
-      );
-    }
-
-    Future _uploadToFirebase(BuildContext context) async {
-      String fileName = basename(imgFile.path);
-      FirebaseStorage storage = FirebaseStorage.instance;
-      Reference ref = storage.ref().child(fileName);
-      UploadTask uploadTask = ref.putFile(File(imgFile.path));
-      uploadTask.then((res) async => {
-        images.add({
-          'album': '',
-          'title': 'Title',
-          'url': await res.ref.getDownloadURL(),
-        })
-        .then((value) => _showAlertDialog(context))
-      });
-    }
-
     return Container(
         color: Color(0xFFBD40),
         constraints: BoxConstraints.expand(),
@@ -123,12 +87,8 @@ class UploadImageState extends State {
                 child:
                   Text("Select Image"),
               ),
-              ElevatedButton(
-                onPressed: (imgFile == null)
-                  ? null
-                  : () =>_uploadToFirebase(context),
-                child:
-                  Text("Upload"),
+              UploadFirebase(
+                imgFile: imgFile,
               )
             ],
           )
