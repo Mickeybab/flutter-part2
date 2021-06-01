@@ -17,6 +17,7 @@ class ImageFeed extends StatelessWidget {
           }
           if (snapshot.connectionState == ConnectionState.done) {
             return new ListView(
+              padding: const EdgeInsets.all(10),
               children: snapshot.data.docs.map((DocumentSnapshot document) {
                 return new ImageCard(
                   imageTitle: document.data()['title'],

@@ -11,8 +11,11 @@ class AlbumDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference images =
-        FirebaseFirestore.instance.collection('images');
+    DocumentReference album =
+        FirebaseFirestore.instance.collection('album').doc(id);
+    Query images = FirebaseFirestore.instance
+        .collection('images')
+        .where('album', isEqualTo: album);
 
     return Scaffold(
       body: FutureBuilder<QuerySnapshot>(
@@ -24,12 +27,21 @@ class AlbumDetail extends StatelessWidget {
             }
             if (snapshot.connectionState == ConnectionState.done) {
               return new ListView(
-                children: snapshot.data.docs.map((DocumentSnapshot document) {
-                  return new ImageCard(
-                    imageTitle: document.data()['title'],
-                    imageUrl: document.data()['url'],
-                  );
-                }).toList(),
+                padding: const EdgeInsets.all(10),
+                children: <Widget>[
+                      Padding(padding: const EdgeInsets.all(30)),
+                      Center(
+                        child: Text(name,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 30)),
+                      )
+                    ] +
+                    snapshot.data.docs.map((DocumentSnapshot document) {
+                      return new ImageCard(
+                        imageTitle: document.data()['title'],
+                        imageUrl: document.data()['url'],
+                      );
+                    }).toList(),
               );
             }
             return Text("Loading...");
