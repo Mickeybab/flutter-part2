@@ -4,8 +4,9 @@ import '../screens/imageDetails.dart';
 class ImageCard extends StatelessWidget {
   final String imageTitle;
   final String imageUrl;
+  final String imageId;
 
-  ImageCard({this.imageTitle, this.imageUrl});
+  ImageCard({this.imageTitle, this.imageUrl, this.imageId});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class ImageCard extends StatelessWidget {
                 builder: (context) => ImageDetails(
                       imageUrl: imageUrl,
                       imageTitle: imageTitle,
+                      imageId: imageId,
                     )),
           );
         },

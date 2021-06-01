@@ -1,22 +1,19 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter2/components/button.dart';
+import 'package:flutter2/screens/addToAlbum.dart';
 
 class ImageDetails extends StatefulWidget {
   final String imageTitle;
   final String imageUrl;
+  final String imageId;
 
-
-  ImageDetails({
-    this.imageTitle,
-    this.imageUrl
-  });
+  ImageDetails({this.imageTitle, this.imageUrl, this.imageId});
 
   @override
   ImageDetailsState createState() => ImageDetailsState();
 }
 
 class ImageDetailsState extends State<ImageDetails> {
-
   @override
   void initState() {
     super.initState();
@@ -45,10 +42,20 @@ class ImageDetailsState extends State<ImageDetails> {
                     width: double.infinity,
                   ),
                 ),
+                MyButton(
+                    text: "Add to album",
+                    onPress: () => {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AddToAlbum(
+                                        imageTitle: widget.imageTitle,
+                                        imageId: widget.imageId,
+                                      )))
+                        }),
               ],
+            ),
           ),
-        ),
-      )
-    );
+        ));
   }
 }

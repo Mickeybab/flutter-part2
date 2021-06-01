@@ -22,6 +22,7 @@ class ImageFeed extends StatelessWidget {
                 return new ImageCard(
                   imageTitle: document.data()['title'],
                   imageUrl: document.data()['url'],
+                  imageId: document.id,
                 );
               }).toList(),
             );
