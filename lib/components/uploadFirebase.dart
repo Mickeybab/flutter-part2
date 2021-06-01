@@ -20,25 +20,6 @@ class _UploadFirebaseState extends State<UploadFirebase> {
 
   @override
   Widget build(BuildContext context) {
-    Future _showAlertDialog(BuildContext context) {
-      Widget okButton = TextButton(
-        onPressed: () => Navigator.pop(context),
-        child: Text("OK"),
-      );
-
-      AlertDialog alert = AlertDialog(
-        title: Text("Done !"),
-        actions: [
-          okButton,
-        ],
-      );
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return alert;
-        },
-      );
-    }
 
     Future _uploadToFirebase(BuildContext context) async {
       String fileName = basename(widget.imgFile.path);
