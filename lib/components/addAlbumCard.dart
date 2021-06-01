@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter2/screens/albumDetails.dart';
 import '../screens/imageDetails.dart';
@@ -11,10 +12,17 @@ class AddAlbumCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DocumentReference album =
+        FirebaseFirestore.instance.collection('album').doc(id);
+
     return InkWell(
         splashColor: Colors.blue,
         onTap: () {
-          print(imageId);
+          FirebaseFirestore.instance
+              .collection('images')
+              .doc(imageId)
+              .update({'album': album});
+          Navigator.pop(context);
         },
         child: Card(
             child: Column(
