@@ -2,24 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../components/imageCard.dart';
+import '../components/addAlbumCard.dart';
 
-class AlbumDetail extends StatelessWidget {
-  final String name;
-  final String id;
+class AddToAlbum extends StatelessWidget {
+  final String imageTitle;
+  final String imageId;
 
-  AlbumDetail({this.name, this.id});
+  AddToAlbum({this.imageTitle, this.imageId});
 
   @override
   Widget build(BuildContext context) {
-    DocumentReference album =
-        FirebaseFirestore.instance.collection('album').doc(id);
-    Query images = FirebaseFirestore.instance
-        .collection('images')
-        .where('album', isEqualTo: album);
+    CollectionReference albums = FirebaseFirestore.instance.collection('album');
 
     return Scaffold(
       body: FutureBuilder<QuerySnapshot>(
-          future: images.get(),
+          future: albums.get(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) {
@@ -31,17 +28,16 @@ class AlbumDetail extends StatelessWidget {
                 children: <Widget>[
                       Padding(padding: const EdgeInsets.all(30)),
                       Center(
-                        child: Text(name,
+                        child: Text(imageTitle,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 30)),
                       )
                     ] +
                     snapshot.data.docs.map((DocumentSnapshot document) {
-                      return new ImageCard(
-                        imageTitle: document.data()['title'],
-                        imageUrl: document.data()['url'],
-                        imageId: document.id,
-                      );
+                      return new AddAlbumCard(
+                          name: document.data()['name'],
+                          id: document.id,
+                          imageId: imageId);
                     }).toList(),
               );
             }
