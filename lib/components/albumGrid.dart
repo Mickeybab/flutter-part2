@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import 'imageCard.dart';
+import 'albumCard.dart';
 
 class AlbumFeed extends StatelessWidget {
   @override
@@ -17,7 +16,10 @@ class AlbumFeed extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done) {
             return new ListView(
               children: snapshot.data.docs.map((DocumentSnapshot document) {
-                return new Text(document.data()['name']);
+                return new AlbumCard(
+                  name: document.data()['name'],
+                  id: document.id,
+                );
               }).toList(),
             );
           }
