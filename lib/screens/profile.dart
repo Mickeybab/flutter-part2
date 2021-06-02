@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../components/button.dart';
 import '../components/takePicture.dart';
+import '../components/profileImage.dart';
 import '../config/global.dart' as global;
 
 class Profile extends StatefulWidget {
@@ -79,7 +80,7 @@ class ProfileState extends State<Profile> {
                 child: Column(
               children: <Widget>[
                 Text(snapshot.data.displayName),
-                // ProfileImage(img: img),
+                ProfileImage(img: img),
                 MyButton(text: "Changer l'image", onPress: _showCamera),
                 MyButton(text: "Logout", onPress: () => authBloc.logout())
               ],

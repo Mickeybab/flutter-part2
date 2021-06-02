@@ -82,8 +82,6 @@ class UploadImageState extends State {
           });
     }
 
-    ;
-
     return Container(
         color: Color(0xFFBD40),
         constraints: BoxConstraints.expand(),
