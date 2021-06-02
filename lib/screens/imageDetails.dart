@@ -31,10 +31,14 @@ class ImageDetailsState extends State<ImageDetails> {
             padding: EdgeInsets.only(top: 50.0),
             child: ListView(
               children: <Widget>[
-                Text(
+                Center(
+                    child: Text(
                   widget.imageTitle,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      color: Colors.white),
+                )),
                 Container(
                   child: Image.network(
                     widget.imageUrl,
