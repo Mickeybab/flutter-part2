@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter2/screens/albumDetails.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class NewAlbum extends StatefulWidget {
   const NewAlbum({Key key}) : super(key: key);
@@ -11,6 +12,8 @@ class NewAlbum extends StatefulWidget {
 
 class _NewAlbumState extends State<NewAlbum> {
   CollectionReference albums = FirebaseFirestore.instance.collection('album');
+  FirebaseAuth auth = FirebaseAuth.instance;
+
   final _formKey = GlobalKey<FormState>();
   final myController = TextEditingController();
 
@@ -22,6 +25,7 @@ class _NewAlbumState extends State<NewAlbum> {
           .showSnackBar(SnackBar(content: Text('Creating...')));
       albums.add({
         'name': myController.text,
+        'owner': auth.currentUser.uid,
       }).then((value) => {
           Navigator.push(
             context,
