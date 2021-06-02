@@ -55,10 +55,7 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    - assets/sound/GeeseBeat.mp3
-    - assets/sound/TurtleMoan.wav
-    - assets/sound/Knock.wav
-    - assets/sound/FunnySounds.wav
+    - assets/img/profilepicture.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
