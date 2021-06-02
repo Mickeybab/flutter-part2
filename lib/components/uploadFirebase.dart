@@ -20,7 +20,6 @@ class _UploadFirebaseState extends State<UploadFirebase> {
 
   @override
   Widget build(BuildContext context) {
-
     Future _uploadToFirebase(BuildContext context) async {
       String fileName = basename(widget.imgFile.path);
       FirebaseStorage storage = FirebaseStorage.instance;
@@ -30,7 +29,7 @@ class _UploadFirebaseState extends State<UploadFirebase> {
           .showSnackBar(SnackBar(content: Text('Uploading...')));
       uploadTask.then((res) async => {
             images.add({
-              'album': '',
+              'albums': '',
               'title': myController.text,
               'url': await res.ref.getDownloadURL(),
             }).then((value) => ScaffoldMessenger.of(context)

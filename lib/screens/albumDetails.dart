@@ -12,10 +12,10 @@ class AlbumDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DocumentReference album =
-        FirebaseFirestore.instance.collection('album').doc(id);
+        FirebaseFirestore.instance.collection('albums').doc(id);
     Query images = FirebaseFirestore.instance
         .collection('images')
-        .where('album', isEqualTo: album);
+        .where('albums', isEqualTo: album);
 
     return Scaffold(
       body: FutureBuilder<QuerySnapshot>(

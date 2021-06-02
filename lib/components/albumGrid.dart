@@ -5,7 +5,8 @@ import 'albumCard.dart';
 class AlbumFeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    CollectionReference albums = FirebaseFirestore.instance.collection('album');
+    CollectionReference albums =
+        FirebaseFirestore.instance.collection('albums');
 
     return FutureBuilder<QuerySnapshot>(
         future: albums.get(),
