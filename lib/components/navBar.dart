@@ -14,28 +14,28 @@ class NavBar extends StatelessWidget {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-        ),
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.grey),
         BottomNavigationBarItem(
-          icon: Icon(Icons.album),
-          label: 'Albums',
-        ),
+            icon: Icon(Icons.album),
+            label: 'Albums',
+            backgroundColor: Colors.grey),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_photo_alternate),
-          label: 'Upload',
-        ),
+            icon: Icon(Icons.add_photo_alternate),
+            label: 'Upload',
+            backgroundColor: Colors.grey),
         BottomNavigationBarItem(
-          icon: Icon(Icons.account_circle),
-          label: 'Profile',
-        ),
+            icon: Icon(Icons.account_circle),
+            label: 'Profile',
+            backgroundColor: Colors.grey),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: 'Settings',
-        ),
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+            backgroundColor: Colors.grey),
       ],
       currentIndex: currentIndex,
-      selectedItemColor: Colors.white,
+      selectedItemColor: Colors.orange,
       backgroundColor: Colors.orange,
       onTap: onTap,
     );
