@@ -12,6 +12,7 @@ class NewAlbum extends StatefulWidget {
 
 class _NewAlbumState extends State<NewAlbum> {
   CollectionReference albums = FirebaseFirestore.instance.collection('albums');
+  FirebaseAuth auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
   final myController = TextEditingController();
 
