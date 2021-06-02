@@ -11,7 +11,7 @@ class AddAlbumCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DocumentReference album =
-        FirebaseFirestore.instance.collection('album').doc(id);
+        FirebaseFirestore.instance.collection('albums').doc(id);
 
     return InkWell(
         splashColor: Colors.blue,
@@ -19,7 +19,7 @@ class AddAlbumCard extends StatelessWidget {
           FirebaseFirestore.instance
               .collection('images')
               .doc(imageId)
-              .update({'album': album});
+              .update({'albums': album});
           Navigator.pop(context);
         },
         child: Card(

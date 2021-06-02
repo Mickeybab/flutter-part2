@@ -11,7 +11,8 @@ class AddToAlbum extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference albums = FirebaseFirestore.instance.collection('album');
+    CollectionReference albums =
+        FirebaseFirestore.instance.collection('albums');
 
     return Scaffold(
       body: FutureBuilder<QuerySnapshot>(

@@ -11,15 +11,12 @@ class NewAlbum extends StatefulWidget {
 }
 
 class _NewAlbumState extends State<NewAlbum> {
-  CollectionReference albums = FirebaseFirestore.instance.collection('album');
-  FirebaseAuth auth = FirebaseAuth.instance;
-
+  CollectionReference albums = FirebaseFirestore.instance.collection('albums');
   final _formKey = GlobalKey<FormState>();
   final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     Future _createNewAlbum(BuildContext context) async {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('Creating...')));
@@ -27,16 +24,15 @@ class _NewAlbumState extends State<NewAlbum> {
         'name': myController.text,
         'owner': auth.currentUser.uid,
       }).then((value) => {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => AlbumDetail(
-                      id: value.id,
-                      name: myController.text,
-                    )
-                ),
-          )
-      });
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => AlbumDetail(
+                        id: value.id,
+                        name: myController.text,
+                      )),
+            )
+          });
     }
 
     return Form(
@@ -54,10 +50,10 @@ class _NewAlbumState extends State<NewAlbum> {
             ),
             ElevatedButton(
               onPressed: () {
-                      if (_formKey.currentState.validate()) {
-                        _createNewAlbum(context);
-                      }
-                    },
+                if (_formKey.currentState.validate()) {
+                  _createNewAlbum(context);
+                }
+              },
               child: Text("Create"),
             )
           ],
